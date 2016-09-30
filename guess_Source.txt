@@ -1,0 +1,76 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int i;
+	int answer = 4;
+	bool keepgoing = true;
+	int tries = 5;
+	int p=2;
+
+
+	while (keepgoing)
+	{
+		cout << "Guess a number between 1-10. You have " << tries << " quesses left:";
+		cin >> i;
+		cout << endl;
+		tries = tries - 1;
+		if (tries > 0)
+		{ 
+			if (i > answer)
+			{
+				cout << "You guessed " << i << ", you are too high. Guess again." << endl << endl;
+			}
+
+			if (i < answer)
+			{
+				cout << "You guessed " << i << ", you are too low. Guess again." << endl << endl;
+			}
+			if (i == answer)
+			{
+				cout << "You guessed " << i << ", you are correct! If you want to play again press 1, otherwise press 0:";
+				cin >> p;
+				cout << endl;
+			}
+		}
+		if (tries <= 0)
+		{ 
+		
+			if (i > answer)
+			{
+				cout << "You guessed " << i << ", you are too high and you are out of guesses :( If you want to play again press 1, otherwise press 0:" << endl << endl;
+				cin >> p;
+				cout << endl;
+			}
+
+			if (i < answer)
+			{
+				cout << "You guessed " << i << ", you are too low and you are out of guesses :( If you want to play again press 1, otherwise press 0:" << endl << endl;
+				cin >> p;
+				cout << endl;
+			}
+		
+			if (i == answer)
+			{
+				cout << "You guessed " << i << ", you are correct! If you want to play again press 1, otherwise press 0:";
+				cin >> p;
+				cout << endl;
+			}
+		}
+		if (p == 0)
+		{
+			keepgoing = false;
+		}
+		if (p == 1)
+		{
+			answer = answer++;
+			tries = 5;
+			p = 2;
+		}
+	}
+	
+	return 0;
+
+}
